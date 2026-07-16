@@ -1,0 +1,14 @@
+C:\Users\Hans\source\repos\nx12\nx12\bin\Debug\net8.0\nx12.exe
+C:\Users\Hans\source\repos\nx12\nx12\bin\Debug\net8.0\nx12.deps.json
+C:\Users\Hans\source\repos\nx12\nx12\bin\Debug\net8.0\nx12.runtimeconfig.json
+C:\Users\Hans\source\repos\nx12\nx12\bin\Debug\net8.0\nx12.dll
+C:\Users\Hans\source\repos\nx12\nx12\bin\Debug\net8.0\nx12.pdb
+C:\Users\Hans\source\repos\nx12\nx12\obj\Debug\net8.0\nx12.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Hans\source\repos\nx12\nx12\obj\Debug\net8.0\nx12.AssemblyInfoInputs.cache
+C:\Users\Hans\source\repos\nx12\nx12\obj\Debug\net8.0\nx12.AssemblyInfo.cs
+C:\Users\Hans\source\repos\nx12\nx12\obj\Debug\net8.0\nx12.csproj.CoreCompileInputs.cache
+C:\Users\Hans\source\repos\nx12\nx12\obj\Debug\net8.0\nx12.dll
+C:\Users\Hans\source\repos\nx12\nx12\obj\Debug\net8.0\refint\nx12.dll
+C:\Users\Hans\source\repos\nx12\nx12\obj\Debug\net8.0\nx12.pdb
+C:\Users\Hans\source\repos\nx12\nx12\obj\Debug\net8.0\nx12.genruntimeconfig.cache
+C:\Users\Hans\source\repos\nx12\nx12\obj\Debug\net8.0\ref\nx12.dll
