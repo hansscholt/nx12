@@ -72,16 +72,14 @@ namespace nx12
             bw.Write(BitConverter.GetBytes(division.timing.fBPM));
             bw.Write(BitConverter.GetBytes(division.timing.fMystery));
             bw.Write(BitConverter.GetBytes(division.timing.fOffset));
-            bw.Write(BitConverter.GetBytes(division.timing.fSpeed)); // non-inverted speed
+            bw.Write(BitConverter.GetBytes(division.timing.fSpeed));
             bw.Write((byte)division.timing.iBeatSplit);
             bw.Write((byte)division.timing.iBeatPerMeasure);
             bw.Write((byte)division.timing.iSmooth);
             bw.Write((byte)0);//??
 
             // division info
-            //bw.Write(BitConverter.GetBytes(0));
             bw.Write(BitConverter.GetBytes(division.divisionInfo.Count));
-            //bw.Write((byte)division.divisionInfo.Count);
 
             //score types
             //0 perfect

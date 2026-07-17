@@ -7,16 +7,16 @@
       "RelativeMoniker": "D:0:0:{D7F56825-815A-4C6A-8C2B-FEBAAC1D4EA9}|nx12\\nx12.csproj|solutionrelative:nx12\\nx20writter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{D7F56825-815A-4C6A-8C2B-FEBAAC1D4EA9}|nx12\\nx12.csproj|c:\\users\\hans\\source\\repos\\nx12\\nx12\\nx10reader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D7F56825-815A-4C6A-8C2B-FEBAAC1D4EA9}|nx12\\nx12.csproj|solutionrelative:nx12\\nx10reader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{D7F56825-815A-4C6A-8C2B-FEBAAC1D4EA9}|nx12\\nx12.csproj|c:\\users\\hans\\source\\repos\\nx12\\nx12\\splitclases.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D7F56825-815A-4C6A-8C2B-FEBAAC1D4EA9}|nx12\\nx12.csproj|solutionrelative:nx12\\splitclases.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D7F56825-815A-4C6A-8C2B-FEBAAC1D4EA9}|nx12\\nx12.csproj|c:\\users\\hans\\source\\repos\\nx12\\nx12\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D7F56825-815A-4C6A-8C2B-FEBAAC1D4EA9}|nx12\\nx12.csproj|solutionrelative:nx12\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D7F56825-815A-4C6A-8C2B-FEBAAC1D4EA9}|nx12\\nx12.csproj|c:\\users\\hans\\source\\repos\\nx12\\nx12\\nx10reader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D7F56825-815A-4C6A-8C2B-FEBAAC1D4EA9}|nx12\\nx12.csproj|solutionrelative:nx12\\nx10reader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -36,14 +36,14 @@
               "RelativeDocumentMoniker": "nx12\\NX20Writter.cs",
               "ToolTip": "C:\\Users\\Hans\\source\\repos\\nx12\\nx12\\NX20Writter.cs",
               "RelativeToolTip": "nx12\\NX20Writter.cs",
-              "ViewState": "AQIAADgAAAAAAAAAAAAIwCABAAAAAAAA",
+              "ViewState": "AQIAAMAAAAAAAAAAAAAmwEoAAABEAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-07-14T00:22:31.24Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "SplitClases.cs",
               "DocumentMoniker": "C:\\Users\\Hans\\source\\repos\\nx12\\nx12\\SplitClases.cs",
               "RelativeDocumentMoniker": "nx12\\SplitClases.cs",
@@ -51,25 +51,24 @@
               "RelativeToolTip": "nx12\\SplitClases.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAAgAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-13T23:39:39.775Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-07-13T23:39:39.775Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "NX10Reader.cs",
               "DocumentMoniker": "C:\\Users\\Hans\\source\\repos\\nx12\\nx12\\NX10Reader.cs",
               "RelativeDocumentMoniker": "nx12\\NX10Reader.cs",
               "ToolTip": "C:\\Users\\Hans\\source\\repos\\nx12\\nx12\\NX10Reader.cs",
               "RelativeToolTip": "nx12\\NX10Reader.cs",
-              "ViewState": "AQIAALcAAAAAAAAAAAAqwFwAAAAYAAAA",
+              "ViewState": "AQIAAGAAAAAAAAAAAAAqwFwAAAAYAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-07-13T23:39:11.844Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\Hans\\source\\repos\\nx12\\nx12\\Program.cs",
               "RelativeDocumentMoniker": "nx12\\Program.cs",
@@ -77,8 +76,7 @@
               "RelativeToolTip": "nx12\\Program.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAC8AAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-13T21:58:07.116Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-07-13T21:58:07.116Z"
             }
           ]
         },

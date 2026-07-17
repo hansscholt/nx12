@@ -12,3 +12,4 @@ C:\Users\Hans\source\repos\nx12\nx12\obj\Release\net8.0\refint\nx12.dll
 C:\Users\Hans\source\repos\nx12\nx12\obj\Release\net8.0\nx12.pdb
 C:\Users\Hans\source\repos\nx12\nx12\obj\Release\net8.0\nx12.genruntimeconfig.cache
 C:\Users\Hans\source\repos\nx12\nx12\obj\Release\net8.0\ref\nx12.dll
+C:\Users\Hans\source\repos\nx12\nx12\obj\Release\net8.0\nx12.sourcelink.json
