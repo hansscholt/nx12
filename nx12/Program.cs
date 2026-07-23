@@ -7,47 +7,66 @@ namespace nx12
     {
         static void Main(string[] args)
         {
-            args = new string[5] { "fr.nx", "-da", "0", "-path", "c:/nx20" };
-            if (args.Length < 1)
+            //args = new string[6] { "-s", "C:\\Pump\\NXSTEP\\nx2 1.60\\step\\c01", "-d", "c:/nx20", "-da", "0" };
+
+            if (args.Length < 2)
             {
-                Console.WriteLine("program.exe file.nx -da <integer> -path <string>");
+                Console.WriteLine("program.exe -s <source folder> -d <destination folder> -da <integer>");
                 return;
             }
 
-            string fileName = args[0];
+            string sourcePath = "";
+            string outputPath = "NX20"; // default
             float delayAdjust = 0;
-            string outputPath = "NX20";
 
-
-            for (int i = 1; i < args.Length; i++)
+            for (int i = 0; i < args.Length; i++)
             {
-                if (args[i].Equals("-da", StringComparison.OrdinalIgnoreCase) && i + 1 < args.Length)
+                if (args[i].Equals("-s", StringComparison.OrdinalIgnoreCase) && i + 1 < args.Length)
+                {
+                    sourcePath = args[i + 1];
+                    i++;
+                }
+                else if (args[i].Equals("-d", StringComparison.OrdinalIgnoreCase) && i + 1 < args.Length)
+                {
+                    outputPath = args[i + 1];
+                    i++;
+                }
+                else if (args[i].Equals("-da", StringComparison.OrdinalIgnoreCase) && i + 1 < args.Length)
                 {
                     if (!float.TryParse(args[i + 1], out delayAdjust))
                         delayAdjust = 0;
                     i++;
                 }
-                else if (args[i].Equals("-path", StringComparison.OrdinalIgnoreCase) && i + 1 < args.Length)
-                {
-                    outputPath = args[i + 1];
-                    i++;
-                }
             }
 
-            if (!File.Exists(fileName))
+            if (string.IsNullOrEmpty(sourcePath) || !Directory.Exists(sourcePath))
             {
-                Console.WriteLine($"file not found: {fileName}");
+                Console.WriteLine($"source folder not found: {sourcePath}");
                 return;
             }
 
-            Read(fileName, delayAdjust, outputPath);
+            if (!Directory.Exists(outputPath))
+            {
+                Directory.CreateDirectory(outputPath);
+            }
+
+            string[] files = Directory.GetFiles(sourcePath, "*.nx");
+            foreach (var file in files)
+            {
+                //Console.WriteLine($"> {Path.GetFileName(file)} (delayAdjust={delayAdjust}, output={outputPath})");
+                Read(file, delayAdjust, outputPath);
+                //if (Read(file, delayAdjust, outputPath))
+                //    Console.WriteLine();
+                //else
+                //    Console.WriteLine("\t error");
+            }
         }
 
 
-        static void Read(string sFile, float delayAdjust, string outFolder)
+        static void Read(string sourceFile, float delayAdjust, string destinationFolder)
         {
             int iType = -1;//nx10, 1 = nx20, 2 = STF4            
-            FileStream fs = new FileStream(sFile, FileMode.Open);
+            FileStream fs = new FileStream(sourceFile, FileMode.Open);
             List<byte[]> lHeader = new List<byte[]>();
             byte[] bByte;
             //for (int i = 0; i < 4; i++)
@@ -76,7 +95,7 @@ namespace nx12
             
             NX10Reader nx10Reader = new NX10Reader();
 
-            NX10File nx10File = nx10Reader.Read(sFile);
+            NX10File nx10File = nx10Reader.Read(sourceFile);
             if (nx10File is null)
             {
                 return;
@@ -84,7 +103,7 @@ namespace nx12
 
             var firstSplit = nx10File.splitdata[0];
             float originalDelay = firstSplit.divisionData[0].timing.fTotalOffset;
-            Console.WriteLine($"file:{sFile} originalDelay:{originalDelay} newDelay:{(originalDelay + delayAdjust)}");
+            Console.WriteLine($"file:{sourceFile} originalDelay:{originalDelay} newDelay:{(originalDelay + delayAdjust)}");
 
             //first, adjust the new delay to each division of the first split
             foreach (var division in firstSplit.divisionData)
@@ -105,14 +124,15 @@ namespace nx12
             nx20File.splitdata = nx10File.splitdata;
             nx20File.iCol = nx10File.iCol;
             nx20File.iLevel = nx10File.iLevel;
+            nx20File.bLightMap = nx10File.bLightMap;
 
-            if (!Directory.Exists(outFolder))
+            if (!Directory.Exists(destinationFolder))
             {
-                Directory.CreateDirectory(outFolder);
+                Directory.CreateDirectory(destinationFolder);
             }
 
             NX20Writter nX20Writter = new NX20Writter();
-            nX20Writter.Write(Path.Combine(outFolder,sFile), nx20File);
+            nX20Writter.Write(Path.Combine(destinationFolder, Path.GetFileName(sourceFile)), nx20File);
         }
     }
 }

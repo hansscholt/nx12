@@ -12,6 +12,7 @@ namespace nx12
         public List<SplitData> splitdata;
         public int iCol;
         public int iLevel;
+        public bool bLightMap;
     }
     public class NX20Writter
     {
@@ -30,12 +31,12 @@ namespace nx12
 
                 foreach (var split in nx20File.splitdata)
                 {
-                    WriteSplit(bw, split);
+                    WriteSplit(bw, split, nx20File.bLightMap);
                 }
             }
         }
 
-        private void WriteSplit(BinaryWriter bw, SplitData split)
+        private void WriteSplit(BinaryWriter bw, SplitData split, bool lightMap)
         {
             // flag (0 = no extra data)
             bw.Write(BitConverter.GetBytes(0));
@@ -48,11 +49,11 @@ namespace nx12
 
             foreach (var division in split.divisionData)
             {
-                WriteDivision(bw, division);
+                WriteDivision(bw, division, lightMap);
             }
         }
 
-        private void WriteDivision(BinaryWriter bw, DivisionData division)
+        private void WriteDivision(BinaryWriter bw, DivisionData division, bool lightMap)
         {
             if (division.timing.fBPM == 0)
             {
@@ -108,21 +109,34 @@ namespace nx12
             {
                 var rowSteps = division.step.FindAll(s => s.iRow == row);
 
-                if (rowSteps.TrueForAll(s => s.bEmptyStep))
-                {
-                    bw.Write(new byte[] { 128, 0, 0, 0 });
-                }
-                else
+                if (lightMap)
                 {
                     foreach (var step in rowSteps)
                     {
                         var nx20Step = NX102NX20(step);
                         bw.Write(new byte[] {
+                            (byte)nx20Step.iNote
+                        });
+                    }
+                }
+                else
+                {
+                    if (rowSteps.TrueForAll(s => s.bEmptyStep))
+                    {
+                        bw.Write(new byte[] { 128, 0, 0, 0 });
+                    }
+                    else
+                    {
+                        foreach (var step in rowSteps)
+                        {
+                            var nx20Step = NX102NX20(step);
+                            bw.Write(new byte[] {
                             (byte)nx20Step.iNote,
                             (byte)nx20Step.iLayer,
                             (byte)nx20Step.iPlayer,
                             (byte)nx20Step.iSpecial
-                        });
+                            });
+                        }
                     }
                 }
             }
@@ -256,6 +270,8 @@ namespace nx12
                     nx20.iSpecial = 192;
                     nx20.iPlayer = NX20ItemCode(nx10.iLayer);
                     break;
+
+                case 1: nx20.iNote = 1; break;  //lightmap
 
                 case 0: break;
                 default:

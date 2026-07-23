@@ -12,6 +12,7 @@ namespace nx12
         public List<SplitData> splitdata;
         public int iCol;
         public int iLevel;
+        public bool bLightMap;
     }
 
     class NX10Reader
@@ -24,7 +25,7 @@ namespace nx12
 
             int[] iBytesHeader = new int[] {
                 4,//signature
-                4,//nothing ?
+                4,//lightmap
                 4,//cols                INT32 - Little Endian (DCBA)
                 4,      
             };
@@ -57,11 +58,14 @@ namespace nx12
                 lHeader.Add(bByte);
             }
 
-            int iCol = BitConverter.ToInt32(lHeader[2], 0);
-            nx10File.iCol = iCol;
+            bool bLightMap = BitConverter.ToBoolean(lHeader[1], 0);
 
+            nx10File.bLightMap = bLightMap;
+            int iCol = BitConverter.ToInt32(lHeader[2], 0);
             int iSplits = BitConverter.ToInt32(lHeader[3], 0);
 
+            
+            nx10File.iCol = iCol;
             long iOldSplitPos = 0;
             long iOldDivisionPos = 0;
             long iOldNotePos = 0;
@@ -165,48 +169,85 @@ namespace nx12
                     divisionData.timing.iRows = iRows;
 
                     divisionData.step = new List<Step>();
-                    for (int b = 0; b < iRows; b++)
+
+
+                    if (bLightMap)
                     {
-
-                        bByte = new byte[4];
-                        fs.Read(bByte, 0, 4);
-
-                        if (bByte[0] == 0 && bByte[1] == 0 && bByte[2] == 0 && bByte[3] == 0)
+                        for (int b = 0; b < iRows; b++)
                         {
-                            //converter
-                            for (int c = 0; c < iCol; c++)
+                            bByte = new byte[4];
+                            fs.Read(bByte, 0, 4);
+
+                            if (bByte[0] == 0 && bByte[1] == 0 && bByte[2] == 0 && bByte[3] == 0)
                             {
-                                Step step = new Step();
-                                step.bEmptyStep = true;
-                                step.iRow = b;
-                                step.iCol = c;
-                                divisionData.step.Add(step);
+                                for (int c = 0; c < 4; c++)
+                                {
+                                    Step step = new Step();
+                                    step.bEmptyStep = true;
+                                    step.iRow = b;
+                                    step.iCol = c;
+                                    divisionData.step.Add(step);
+                                }
+                            }
+                            else
+                            {
+                                for (int c = 0; c < 4; c++)
+                                {
+                                    Step step = new Step();
+                                    step.iRow = b;
+                                    step.bEmptyStep = false;
+                                    step.iNote = bByte[c];
+                                    step.iLayer = 0;
+                                    step.iCol = c;
+                                    divisionData.step.Add(step);
+                                }
                             }
                         }
-                        else
+                    }
+                    else 
+                    {
+                        for (int b = 0; b < iRows; b++)
                         {
-                            iPos = BitConverter.ToInt32(bByte, 0);
-                            iOldNotePos = fs.Position;
-                            fs.Position = iPos;
+                            bByte = new byte[4];
+                            fs.Read(bByte, 0, 4);
 
-
-                            for (int c = 0; c < iCol; c++)
+                            if (bByte[0] == 0 && bByte[1] == 0 && bByte[2] == 0 && bByte[3] == 0)
                             {
-                                Step step = new Step();
-                                step.iRow = b;
-                                bByte = new byte[2];
-                                fs.Read(bByte, 0, 2);
-                                if (bByte[0] != 0 || bByte[1] != 0)   //at least one tap
+                                //converter
+                                for (int c = 0; c < iCol; c++)
                                 {
-                                    step.bEmptyStep = false;
-                                    step.iNote = bByte[0];
-                                    step.iLayer = bByte[1];
+                                    Step step = new Step();
+                                    step.bEmptyStep = true;
+                                    step.iRow = b;
                                     step.iCol = c;
+                                    divisionData.step.Add(step);
                                 }
-
-                                divisionData.step.Add(step);
                             }
-                            fs.Position = iOldNotePos;
+                            else
+                            {
+                                iPos = BitConverter.ToInt32(bByte, 0);
+                                iOldNotePos = fs.Position;
+                                fs.Position = iPos;
+
+
+                                for (int c = 0; c < iCol; c++)
+                                {
+                                    Step step = new Step();
+                                    step.iRow = b;
+                                    bByte = new byte[2];
+                                    fs.Read(bByte, 0, 2);
+                                    if (bByte[0] != 0 || bByte[1] != 0)   //at least one tap
+                                    {
+                                        step.bEmptyStep = false;
+                                        step.iNote = bByte[0];
+                                        step.iLayer = bByte[1];
+                                        step.iCol = c;
+                                    }
+
+                                    divisionData.step.Add(step);
+                                }
+                                fs.Position = iOldNotePos;
+                            }
                         }
                     }
 
@@ -220,6 +261,9 @@ namespace nx12
                 splitData.Add(split);
             }
             nx10File.splitdata = splitData;
+            
+
+            
 
             fs.Close();
 
