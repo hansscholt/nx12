@@ -26,64 +26,7 @@
       "DocumentGroups": [
         {
           "DockedHeight": 313,
-          "SelectedChildIndex": 3,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "NX20Writter.cs",
-              "DocumentMoniker": "C:\\Users\\Hans\\source\\repos\\nx12\\nx12\\NX20Writter.cs",
-              "RelativeDocumentMoniker": "nx12\\NX20Writter.cs",
-              "ToolTip": "C:\\Users\\Hans\\source\\repos\\nx12\\nx12\\NX20Writter.cs",
-              "RelativeToolTip": "nx12\\NX20Writter.cs",
-              "ViewState": "AgIAAJ0AAAAAAAAAAAAewLYAAAAaAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-14T00:22:31.24Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "SplitClases.cs",
-              "DocumentMoniker": "C:\\Users\\Hans\\source\\repos\\nx12\\nx12\\SplitClases.cs",
-              "RelativeDocumentMoniker": "nx12\\SplitClases.cs",
-              "ToolTip": "C:\\Users\\Hans\\source\\repos\\nx12\\nx12\\SplitClases.cs",
-              "RelativeToolTip": "nx12\\SplitClases.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAAgAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-13T23:39:39.775Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "NX10Reader.cs",
-              "DocumentMoniker": "C:\\Users\\Hans\\source\\repos\\nx12\\nx12\\NX10Reader.cs",
-              "RelativeDocumentMoniker": "nx12\\NX10Reader.cs",
-              "ToolTip": "C:\\Users\\Hans\\source\\repos\\nx12\\nx12\\NX10Reader.cs",
-              "RelativeToolTip": "nx12\\NX10Reader.cs",
-              "ViewState": "AgIAAJ8AAAAAAAAAAIAwwLYAAAA3AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-13T23:39:11.844Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\Hans\\source\\repos\\nx12\\nx12\\Program.cs",
-              "RelativeDocumentMoniker": "nx12\\Program.cs",
-              "ToolTip": "C:\\Users\\Hans\\source\\repos\\nx12\\nx12\\Program.cs",
-              "RelativeToolTip": "nx12\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADYAAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-13T21:58:07.116Z",
-              "EditorCaption": ""
-            }
-          ]
-        },
-        {
-          "DockedHeight": 96,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 9,
           "Children": [
             {
               "$type": "Bookmark",
@@ -108,6 +51,57 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{e1b7d1f8-9b3c-49b1-8f4f-bfc63a88835d}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "NX20Writter.cs",
+              "DocumentMoniker": "C:\\Users\\Hans\\source\\repos\\nx12\\nx12\\NX20Writter.cs",
+              "RelativeDocumentMoniker": "nx12\\NX20Writter.cs",
+              "ToolTip": "C:\\Users\\Hans\\source\\repos\\nx12\\nx12\\NX20Writter.cs",
+              "RelativeToolTip": "nx12\\NX20Writter.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-14T00:22:31.24Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "SplitClases.cs",
+              "DocumentMoniker": "C:\\Users\\Hans\\source\\repos\\nx12\\nx12\\SplitClases.cs",
+              "RelativeDocumentMoniker": "nx12\\SplitClases.cs",
+              "ToolTip": "C:\\Users\\Hans\\source\\repos\\nx12\\nx12\\SplitClases.cs",
+              "RelativeToolTip": "nx12\\SplitClases.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAAgAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-13T23:39:39.775Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "NX10Reader.cs",
+              "DocumentMoniker": "C:\\Users\\Hans\\source\\repos\\nx12\\nx12\\NX10Reader.cs",
+              "RelativeDocumentMoniker": "nx12\\NX10Reader.cs",
+              "ToolTip": "C:\\Users\\Hans\\source\\repos\\nx12\\nx12\\NX10Reader.cs",
+              "RelativeToolTip": "nx12\\NX10Reader.cs",
+              "ViewState": "AgIAAJQAAAAAAAAAAIAwwMsAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-13T23:39:11.844Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Hans\\source\\repos\\nx12\\nx12\\Program.cs",
+              "RelativeDocumentMoniker": "nx12\\Program.cs",
+              "ToolTip": "C:\\Users\\Hans\\source\\repos\\nx12\\nx12\\Program.cs",
+              "RelativeToolTip": "nx12\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-13T21:58:07.116Z",
+              "EditorCaption": ""
             }
           ]
         }

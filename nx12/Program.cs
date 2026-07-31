@@ -7,7 +7,7 @@ namespace nx12
     {
         static void Main(string[] args)
         {
-            //args = new string[6] { "-s", "C:\\Pump\\NXSTEP\\nx2 1.60\\step\\c01", "-d", "c:/nx20", "-da", "0" };
+            //args = new string[6] { "-s", "C:\\Pump\\NXSTEP\\nx2 1.60\\step\\103", "-d", "C:\\Pump\\NXSTEP\\nempty", "-da", "0" };
 
             if (args.Length < 2)
             {
@@ -45,12 +45,15 @@ namespace nx12
                 return;
             }
 
-            if (!Directory.Exists(outputPath))
-            {
-                Directory.CreateDirectory(outputPath);
-            }
+            
 
             string[] files = Directory.GetFiles(sourcePath, "*.nx");
+            if (files.Count() <= 0)
+            {
+                Console.WriteLine($"source folder doesn't contains any files: {sourcePath}");
+                return;
+            }
+
             foreach (var file in files)
             {
                 //Console.WriteLine($"> {Path.GetFileName(file)} (delayAdjust={delayAdjust}, output={outputPath})");
@@ -132,7 +135,7 @@ namespace nx12
             }
 
             NX20Writter nX20Writter = new NX20Writter();
-            nX20Writter.Write(Path.Combine(destinationFolder, Path.GetFileName(sourceFile)), nx20File);
+            nX20Writter.Write(Path.Combine(destinationFolder, Path.GetFileName(sourceFile)).ToUpper(), nx20File);
         }
     }
 }
