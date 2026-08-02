@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("nx12")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6709682031cb2080fa9d6e311584b16ec0c546a8")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fdb432832d18aed293e1621799cd8585c5ff006a")]
 [assembly: System.Reflection.AssemblyProductAttribute("nx12")]
 [assembly: System.Reflection.AssemblyTitleAttribute("nx12")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -25,7 +25,15 @@ namespace nx12
                 bw.Write(Encoding.ASCII.GetBytes("NX20"));   // signature
                 bw.Write(BitConverter.GetBytes(0));          // nothing
                 bw.Write(BitConverter.GetBytes(nx20File.iCol)); // column count
-                bw.Write(BitConverter.GetBytes(0));          // lightmap
+                if (nx20File.bLightMap)
+                {
+                    bw.Write(BitConverter.GetBytes(1));          // lightmap
+                }
+                else 
+                {
+                    bw.Write(BitConverter.GetBytes(0));
+                }
+
                 bw.Write(BitConverter.GetBytes(0));          // trash count
                 bw.Write(BitConverter.GetBytes(nx20File.splitdata.Count)); // splits count
 
